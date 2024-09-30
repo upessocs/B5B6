@@ -2,6 +2,12 @@ import requests
 
 
 def download_file(url, file_name):
+    '''
+    function to download a file 
+    it takes two arguments, URL and Filename
+    download_file(url, file_name)
+    '''
+    file_name=f"{file_name}.{url.split('.')[-1].lower()}" # to generate extension from url
     # Send a GET request to the provided URL
     response = requests.get(url)
     
@@ -14,9 +20,7 @@ def download_file(url, file_name):
     else:
         print(f"Failed to download file. Status code: {response.status_code}")#Example usage
 
-
 if __name__ == "__main__":
-	url = input("enter url")
-    ext = url.split(".")[-1].lower()
-	file_name = f'filename.{ext}'
+	url = 'https://www.python.org/static/img/psf-logo.png'
+	file_name = 'file'
 	download_file(url, file_name)
